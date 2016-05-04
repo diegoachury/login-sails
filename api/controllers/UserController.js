@@ -19,7 +19,16 @@ module.exports = {
 				console.log(err)
 				return res.redirect('user/new');
 			}
-			res.redirect('user');
+			res.redirect('user/show/'+user.id);
+		});
+	},
+	show:function(req, res, next){
+		User.findOne(req.param('id'), function userFounded( err, user){
+			if (err)
+				return next(err);
+			res.view({
+				user: user
+			});
 		});
 	}
 };
