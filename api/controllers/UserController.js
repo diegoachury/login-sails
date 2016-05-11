@@ -6,6 +6,17 @@
  */
 
 module.exports = {
+	index: function (req, res, next){
+		User.find( function userFounded(err, users){
+			if (err){
+				console.log(err);
+			}
+			res.view({
+				users: users
+			});
+		});
+	},
+
 	new:function (req, res){
 		res.view('user/register');
 	},
@@ -58,6 +69,12 @@ module.exports = {
 			res.redirect('user/show/'+ req.param('id'));
 		});
 
+	},
+	destroy: function (req, res, next){
+		User.destroy(req.param('id'), function userDestroyed(err){
+			if (err) return res.send(err,500);
+			return res.redirect('/user/index');
+		});
 	}
 };
 

@@ -1,0 +1,13 @@
+<table>
+	<th>Nombre</th>
+	<th>Email</th>
+	<% users.forEach( function(users){ %>
+	<tr>
+		<td><%= users.name %></td>
+		<td><%= users.email %></td>
+		<td><a href="/user/show/<%= users.id %>">ver</a></td>
+		<td><a href="/user/edit/<%= users.id %>">editar</a></td>
+		<td><a href="/user/destroy/<%= users.id %>">Delete</a></td>
+	</tr>
+	<% }) %>
+</table>
