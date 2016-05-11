@@ -1,5 +1,15 @@
 
 <div class="formulario">
+	<!-- flash de error  -->
+	<% if(flash && flash.err) { %>
+	<ul>
+		<% Object.keys(flash.err).forEach(function (error) { %>
+		<li>
+			<%= JSON.stringify(flash.err[error]) %>
+		</li>
+		<% }) %>
+	</ul>
+	<% } %>
 	<form action="/user/create" method="POST">
 		<label for="">Nombre</label>
 		<input type="text" name="name" class="name">

@@ -23,11 +23,15 @@ module.exports = {
 	create:function(req, res){
 		var userObj = {
 			name: req.param('name'),
-			email: req.param('email')
+			email: req.param('email'),
+			password: req.param('password')
 		}
 		User.create(userObj, function (err, user){
 			if(err){
-				console.log(err)
+				console.log(JSON.stringify(err))
+				req.session.flash={
+					err: err
+				}
 				return res.redirect('user/new');
 			}
 			res.redirect('user/show/'+user.id);
