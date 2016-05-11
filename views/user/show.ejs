@@ -1,0 +1,8 @@
+<ul>
+	<li><%= user.name %></li>
+	<li><%= user.email %></li>
+</ul>
+
+<form action="/user/edit/<%= user.id %>" method="POST">
+	<button type ="submit" href="">Editar</button>
+</form>

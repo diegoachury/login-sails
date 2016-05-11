@@ -1,0 +1,13 @@
+
+<div class="formulario">
+	<form action="/user/update/<%= user.id %>" method="POST">
+		<label for="">Nombre</label>
+		<input type="text" name="name" class="name" value="<%= user.name %>">
+		<label for="">email</label>
+		<input type="email" name="email" class="name"  value="<%= user.email %>">
+		<label for="">password</label>
+		<input type="text" name="password" class="paswword"  value="<%= user.password %>">
+		<button type="submit">actualizar</button>
+	</form>
+
+</div>
